@@ -1,0 +1,210 @@
+﻿create database Examen
+
+use Examen
+
+
+ create table Marcas
+ (
+ IdMarca int primary key identity(1,1),
+ NombreMarca varchar(100),
+Estatus bit 
+
+
+ )
+
+
+create table  Modelo
+(
+	IdModelo int primary key identity(1,1),
+	NombreModelo  varchar(100),
+	Estatus  bit 
+)
+	
+
+	 create table Color
+	 (
+       IdColor int primary key identity(1,1),
+      NombreColor varchar(100),
+       Estatus bit
+	   )
+
+
+ create table Vehiculo
+ (
+
+
+	IdVehiculo int primary key identity(1,1),
+	Descripcion varchar(100),
+	IdMarca int references Marcas(IdMarca),
+	IdModelo int 	references Modelo(IdModelo ),
+       IdColor int references Color( IdColor ),
+	PrecioVenta decimal(10,4),
+        Anio int,
+        Motor varchar(100),
+        Ruedas varchar(20),
+	Estatus bit
+)
+
+select * from Marcas
+
+insert into Marcas
+select
+'honda', 1
+
+insert into Marcas
+select
+'nissan', 1
+
+insert into Color
+select 'blancoperlado', 1
+
+insert into Color
+select 'rojo', 1
+
+
+insert into Color
+select 'azulelectrico', 1
+
+select * from Color
+
+
+select * from Marcas
+
+
+select * from Modelo
+select * from Vehiculo
+
+insert into Modelo
+select 'civic xl' ,1
+
+insert into Modelo
+select 'crv' ,1
+
+insert into Modelo
+select 'civic couper' ,1
+
+insert into Vehiculo
+select 'subaru camioneta', 1,2, 2, 180000, 2012, 1.8, '4',1
+
+
+IdVehiculo
+1
+
+
+create procedure Vehiculoshow
+
+as
+begin
+
+select * from Vehiculo veh
+inner join  Modelo mode on mode.IdModelo = veh.IdModelo
+inner join Marcas mar on mar.IdMarca = veh.IdMarca
+inner join Color col on col.IdColor = veh.IdColor
+
+
+end
+
+exec Vehiculoshow
+
+Descripcion
+subaru camioneta
+
+exec Marcasshow
+
+exec Colorshow
+exec  Modeloshow
+
+
+create procedure Marcasshow
+as
+begin
+select * from Marcas
+
+IdMarca	NombreMarca	Estatus
+1	honda	1
+
+
+end
+
+
+
+create procedure Colorshow
+as
+begin
+select * from Color
+
+IdColor	NombreColor	Estatus
+
+end
+
+
+create procedure Modeloshow
+as
+begin
+select * from Modelo
+
+
+end
+
+IdModelo	NombreModelo	Estatus
+1	civic xl	1
+
+alter procedure vehiculoeventos
+(
+@ind int ,
+@IdVehiculo int ,
+@descripcion varchar(100),
+@idmarcar int, 
+@idmodelo int ,
+@idcolor int,
+@precio decimal(10,4),
+@anio int,
+@Motor varchar(100),
+@Ruedas varchar(20)
+)
+as
+
+begin
+ if @ind = 1
+ begin
+ insert into Vehiculo
+ (
+  
+	Descripcion ,	IdMarca ,IdModelo ,
+       IdColor ,	PrecioVenta ,
+        Anio ,     Motor ,    Ruedas ,
+	Estatus 
+	)
+	values 
+	(
+	@descripcion,@idmarcar , @idmodelo,
+	@idcolor,@precio,
+	@anio , @Motor, @Ruedas,
+	1
+
+	)
+
+ end
+
+  if @ind = 2
+ begin
+  update Vehiculo
+  set 
+  	Descripcion = @descripcion ,
+	IdMarca  = @idmarcar,
+	IdModelo = @idmodelo ,
+       IdColor= @idcolor ,
+	   PrecioVenta = @precio ,
+        Anio = @anio ,  
+		Motor = @Motor ,  
+		Ruedas = @Ruedas   
+  where  IdVehiculo = @IdVehiculo
+ end
+  if @ind = 3
+ begin
+  delete from Vehiculo
+  where IdVehiculo = @IdVehiculo
+ end
+
+end
+
