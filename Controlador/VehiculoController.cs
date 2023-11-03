@@ -116,7 +116,8 @@ namespace Examen.Controlador
                     + model.precio + " , "
                     + model.anio + " , '"
                     + model.motor + "' ,  '"
-                    + model.ruedas + "' "
+                    + model.ruedas + "' ,  "
+                    + model.precioint + " "
 
                     ;
 

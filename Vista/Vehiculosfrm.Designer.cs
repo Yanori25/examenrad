@@ -41,6 +41,16 @@ namespace Examen.Vista
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbmarca = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtdescripcion = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtprecio = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtanio = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtmotor = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtrueda = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvroles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +62,7 @@ namespace Examen.Vista
             this.btneditar.TabIndex = 26;
             this.btneditar.Text = "editar";
             this.btneditar.UseVisualStyleBackColor = true;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // btneliminar
             // 
@@ -151,11 +162,103 @@ namespace Examen.Vista
             this.cmbmarca.Size = new System.Drawing.Size(121, 21);
             this.cmbmarca.TabIndex = 46;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(335, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 53;
+            this.label5.Text = "Descripcion";
+            // 
+            // txtdescripcion
+            // 
+            this.txtdescripcion.Location = new System.Drawing.Point(417, 75);
+            this.txtdescripcion.Name = "txtdescripcion";
+            this.txtdescripcion.Size = new System.Drawing.Size(121, 20);
+            this.txtdescripcion.TabIndex = 52;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(59, 121);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 55;
+            this.label6.Text = "precio";
+            // 
+            // txtprecio
+            // 
+            this.txtprecio.Location = new System.Drawing.Point(141, 113);
+            this.txtprecio.Name = "txtprecio";
+            this.txtprecio.Size = new System.Drawing.Size(121, 20);
+            this.txtprecio.TabIndex = 54;
+            this.txtprecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprecio_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(335, 121);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "Año";
+            // 
+            // txtanio
+            // 
+            this.txtanio.Location = new System.Drawing.Point(417, 113);
+            this.txtanio.Name = "txtanio";
+            this.txtanio.Size = new System.Drawing.Size(121, 20);
+            this.txtanio.TabIndex = 56;
+            this.txtanio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtanio_KeyPress);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(552, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(34, 13);
+            this.label9.TabIndex = 61;
+            this.label9.Text = "Motor";
+            // 
+            // txtmotor
+            // 
+            this.txtmotor.Location = new System.Drawing.Point(634, 27);
+            this.txtmotor.Name = "txtmotor";
+            this.txtmotor.Size = new System.Drawing.Size(121, 20);
+            this.txtmotor.TabIndex = 60;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(552, 79);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(39, 13);
+            this.label10.TabIndex = 63;
+            this.label10.Text = "Rueda";
+            // 
+            // txtrueda
+            // 
+            this.txtrueda.Location = new System.Drawing.Point(634, 76);
+            this.txtrueda.Name = "txtrueda";
+            this.txtrueda.Size = new System.Drawing.Size(121, 20);
+            this.txtrueda.TabIndex = 62;
+            // 
             // Vehiculosfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtrueda);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtmotor);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtanio);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtprecio);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtdescripcion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbcolor);
             this.Controls.Add(this.cmbmodelo);
@@ -191,5 +294,15 @@ namespace Examen.Vista
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbmarca;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtdescripcion;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtprecio;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtanio;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtmotor;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtrueda;
     }
 }

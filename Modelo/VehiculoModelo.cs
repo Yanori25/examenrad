@@ -20,5 +20,8 @@ namespace Examen.Modelo
         public string ruedas { get; set; }
         public bool Estatus { get; set; }
 
+        public int precioint { get; set; }
+        
+
     }
 }
